@@ -1,68 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Net.Http;
 
 namespace ConsoleApplication1
 {
     public class Program
     {
-        public delegate int Multiply(int x, int y);
-        
         public static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello World");
-            System.Console.ReadLine();
-            System.Console.WriteLine("What is your username?");
-            string response = System.Console.ReadLine();
-
-
-
-            System.Console.WriteLine("Here's your profile info");
-            System.Console.Write(GetProfile(response));
-            System.Console.ReadLine();
+            Console.WriteLine("What is your user name?");
+            var name = Console.ReadLine();
+            Console.Write(GetUserInfo(name));
+            Console.ReadLine();
         }
-        public static string GetProfile(string username)
-        {
-            var client = new HttpClient();
 
-            var json = client.GetStringAsync("http://graph.facebook.com/" + username).Result;
-            return json;
+        public static string GetUserInfo(string name)
+        {
+            var web = new HttpClient();
+            return web.GetStringAsync("http://graph.facebook.com/" + name).Result;
         }
     }
-        public class Dog
+
+    public delegate int Multiply(int x, int y);
+
+    public class Dog
+    {
+        private List<string> _ListOfWords = new List<string>();
+        private string _DogsWord = "woof";
+
+        public string DogsWord
         {
-            private List<string> _ListOfWords = new List<string>();
-            private string _DogsWord = "woof";
-
-            public string DogsWord 
+            get
             {
-                get
-                {
-                    return _DogsWord;
-                }
-                set
-                {
-                    _DogsWord = value;
-                }
+                return _DogsWord;
             }
-
-            public string Bark()
+            set
             {
-                return _DogsWord + " " + string.Join(", ", _ListOfWords);
+                _DogsWord = value;
             }
-            public void LearnNewWord(string word)
-            {
-                _ListOfWords.Add(word);
-
-  
-            }
-            [Obsolete]
-            public string Run()
-            {
-                return "I am running at " + Speed + " Miles an Hour";
-            }
-
-            public string Speed { get; set; }
         }
-    
+        public string Speed { get; set; }
+
+        public string Bark()
+        {
+            return _DogsWord + string.Join(", ", _ListOfWords);
+        }
+
+        public void LearnNewWord(string word)
+        {
+            _ListOfWords.Add(word);
+        }
+
+        public string Run()
+        {
+            return "I am running at " + Speed + " Miles an Hour";
+        }
+
+    }
 }
