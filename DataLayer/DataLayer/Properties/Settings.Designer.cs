@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BasicContacts.Properties {
+namespace DataLayer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,10 +26,10 @@ namespace BasicContacts.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=DataLayer;Integrated Security=True")]
-        public string DataLayerConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=CSharp;Integrated Security=True")]
+        public string CSharpConnectionString {
             get {
-                return ((string)(this["DataLayerConnectionString"]));
+                return ((string)(this["CSharpConnectionString"]));
             }
         }
     }

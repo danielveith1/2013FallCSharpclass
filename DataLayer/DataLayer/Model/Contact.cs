@@ -10,6 +10,7 @@ namespace DataLayer.Models
         {
             this.ContactMethods = new ObservableCollection<ContactMethod>();
             this.Addresses = new ObservableCollection<Address>();
+            this.Contacts = new ObservableCollection<Contact>();
         }
 
         public int Id { get; set; }
@@ -19,6 +20,7 @@ namespace DataLayer.Models
         public string fbid { get; set; }
         public virtual ICollection<ContactMethod> ContactMethods { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<Contact> Contacts { get; set; }
         public virtual Keyword Keyword { get; set; }
     }
 }
