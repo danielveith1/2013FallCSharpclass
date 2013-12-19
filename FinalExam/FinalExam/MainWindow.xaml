@@ -3,17 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
         Title="MainWindow" Height="350" Width="525">
+    
     <Grid>
+
         
         <StackPanel>
             <TextBlock Text="Name a City." />
+            <TextBox Height="23" TextWrapping="Wrap" Text="TextBox">
+                <TextBox.BindingGroup>
+                    <BindingGroup/>
+                </TextBox.BindingGroup>
+                <TextBox.DataContext>
+                    <toolkit:AutoCompleteBox>
+                        <toolkit:AutoCompleteBox.BindingGroup>
+                            <BindingGroup/>
+                        </toolkit:AutoCompleteBox.BindingGroup>
+                    </toolkit:AutoCompleteBox>
+                </TextBox.DataContext>
+            </TextBox>
+
             <toolkit:AutoCompleteBox
               ToolTip="Name a City"
-              x:Name="City" Height="30" Width="100"
+              ItemsSource="{Binding SearchCollection}"
+              SelectedItem="{Binding Selection, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+              IsTextCompletionEnabled="True"
+              x:Name="City" Height="30"
               Populating="City_Populating" />
+            
         </StackPanel>
-        <DataGrid HorizontalAlignment="Left" Margin="566,70,-149,0" VerticalAlignment="Top" Width="100"/>
+        <DataGrid HorizontalAlignment="Left" Margin="201,247,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
-   
+
 </Window>
