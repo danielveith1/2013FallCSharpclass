@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{022FBADE-365D-409C-8E2F-C0E5F1167D69}</ProjectGuid>
+    <ProjectGuid>{D50F2511-94ED-4BF4-8491-1E0EB78B131B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataLayer</RootNamespace>
@@ -51,15 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseVM.cs" />
-    <Compile Include="Migrations\201310271241017_Restart.cs" />
-    <Compile Include="Migrations\201310271241017_Restart.designer.cs">
-      <DependentUpon>201310271241017_Restart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201310271258151_Catchup.cs" />
-    <Compile Include="Migrations\201310271258151_Catchup.Designer.cs">
-      <DependentUpon>201310271258151_Catchup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\ContactMethod.cs" />
@@ -73,7 +64,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,12 +77,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201310271241017_Restart.resx">
-      <DependentUpon>201310271241017_Restart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310271258151_Catchup.resx">
-      <DependentUpon>201310271258151_Catchup.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

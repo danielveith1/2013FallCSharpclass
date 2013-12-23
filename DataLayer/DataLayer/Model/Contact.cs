@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer.Models
 {
@@ -10,9 +12,9 @@ namespace DataLayer.Models
         {
             this.ContactMethods = new ObservableCollection<ContactMethod>();
             this.Addresses = new ObservableCollection<Address>();
-            this.Contacts = new ObservableCollection<Contact>();
+            this.MyContacts = new ObservableCollection<Contact>();
         }
-
+        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -20,7 +22,8 @@ namespace DataLayer.Models
         public string fbid { get; set; }
         public virtual ICollection<ContactMethod> ContactMethods { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
-        public virtual ICollection<Contact> Contacts { get; set; }
+        public virtual ICollection<Contact> MyContacts { get; set; }
         public virtual Keyword Keyword { get; set; }
+        
     }
 }

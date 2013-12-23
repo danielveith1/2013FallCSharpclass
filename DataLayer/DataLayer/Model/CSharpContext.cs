@@ -1,5 +1,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer.Models
 {
